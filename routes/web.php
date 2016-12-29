@@ -22,14 +22,13 @@ Route::get('/', function () {
 
 Route::get('about','PagesController@about');
 //Route::get('Licitaciones/{MakerID}', 'PagesController@show');
-Route::get('nuevalicit', 'PagesController@nuevalicit');
+//Route::get('nuevalicit', 'PagesController@nuevalicit');
 
 //Route::post('user/{}/licit', ' PagesController@addLicit');
 
-Route::get('licit/create', 'LicitController@add');
-
-Route::post('licit', 'LicitController@store');
+Route::get('create', 'LicitController@add');
+Route::post('created', 'LicitController@store');
 Route::post('welcome','PagesController@welcome');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
+Route::get('App', 'PagesController@app');

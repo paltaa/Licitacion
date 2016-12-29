@@ -7,7 +7,8 @@ use Request;
 
 class LicitController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->middleware('auth');
 
@@ -21,21 +22,24 @@ class LicitController extends Controller
 		return view(' licit.show ', compact('$licit'));
 
 
-
 	}
     public function add()
     {
     	return view('licit.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
 
-    	$input = Request::all();
+    	$licit = new Licit;
+        $licit->name = $request->name;
+        $licit->body = $request->body;
+        $licit->Makerid = $request -> Makerid;
+        $licit->Caduca = $request -> Caduca;
+        $licit->save();
 
-    	Licit::create($input);
-
-    	return redirect('welcome')
+    	//return redirect('welcome');
+        return $request->all();
     }
 
 }
