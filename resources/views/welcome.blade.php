@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1> ctm this is biulshit asd</h1>
+    <h1> Projecto licitaciones</h1>
 
 @stop
 

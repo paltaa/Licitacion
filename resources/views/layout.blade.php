@@ -71,7 +71,7 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ url('/create') }}">Nueva Licitacion</a>
-                        <a href="{{ url('/home') }}">Mis Licitaciones</a>
+                        <a href="{{ url('/licit.index') }}">Mis Licitaciones</a>
 
                     @else
                         <a href="{{ url('/login') }}">Login</a>
@@ -85,13 +85,7 @@
                     @yield('content')
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+            
             </div>
         </div>
     </body>

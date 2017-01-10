@@ -2,27 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-
-
+use Auth;
+use App\Licit;
+use Illuminate\Http\Request;
+//use Request;
 class LicitController extends Controller
 {
     public function __construct()
     {
-
         $this->middleware('auth');
-
-
     }
-	public function show($user)
+	public function index(Licit $userid)
 	{
 
-		$licit=Licit::where( $user, $Makerid );
+		//$licit=Licit::where( $userid,'=', $makerid );
 
-		return view(' licit.show ', compact('$licit'));
-
-
+		return $licit;
+        return view(' licit.show ', compact('$licit'));
 	}
+
+    public function show()
+    {
+        $licit = Licit::where('makerid', Auth::id())->get();
+        return $licit;  
+        return view('licit.index', compact($licit));
+
+    }
     public function add()
     {
     	return view('licit.create');
@@ -34,12 +39,13 @@ class LicitController extends Controller
     	$licit = new Licit;
         $licit->name = $request->name;
         $licit->body = $request->body;
-        $licit->Makerid = $request -> Makerid;
-        $licit->Caduca = $request -> Caduca;
+        $licit->makerid = Auth::id();
+        $licit->caduca = $request -> caduca;
+        $licit->rubro = $request -> rubro;
         $licit->save();
+        return "<script> alert('guardada exitosamente')</script>".redirect('home');
 
-    	//return redirect('welcome');
-        return $request->all();
+        
     }
 
 }

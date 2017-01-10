@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('rut');
             $table->string('phone');
+            $table->string('class');
         });
     }
 

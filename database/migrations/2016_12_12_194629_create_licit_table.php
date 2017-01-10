@@ -13,13 +13,14 @@ class CreateLicitTable extends Migration
      */
     public function up()
     {
-        Schema::create('licit', function (Blueprint $table) {
+        Schema::create('Licits', function (Blueprint $table) {
             $table->increments('id');
-            $table->varchar('name')
+            $table->string('name');
             $table->timestamps();
-            $table->text('body');
-            $table->integer('Makerid');
-            $table->timestamp('Caduca');
+            $table->string('body');
+            $table->integer('makerid');
+            $table->date('caduca');
+            $table->string('rubro');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateLicitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('licit');
+        Schema::dropIfExists('Licits');
     }
 }

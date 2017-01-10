@@ -1,78 +1,56 @@
-@extends('layout')
 
+@extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Nueva licitacion</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/create') }}">
-                        {{ csrf_field() }}
-                       
-                        {{Form::text(' Makerid', Auth::user()->id)}}
+                <div class="panel-heading"></div>
+                <div class="panel-body">Nueva licitacion</div>
 
+<hr/>
+{!! Form::open() !!}
+	
 
+	<div class = "form group">
 
+	{!! Form::label('name', 'Titulo:') !!}
+	{!! Form::text('name', null, ['class' => 'form-control'])!!}
+	</div>
+<br>
+		<div class = "form group">
+		{{ 'Caduca:' }}
+		<input id="caduca" type="date" class="form-control" name="caduca" value="{{ old('caduca') }}" required autofocus>
+	<div class = "form group">
+<br>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nombre</label>
+	{!! Form::label('body', 'Descripcion:') !!}
+	{!! Form::textarea('body', null, ['class' => 'form-control'])!!}
+	</div>
+<br>
+	<div class = "form group">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+	{!! Form::label('rubro', 'Rubro:') !!}
+	{!! Form::text('rubro', null, ['class' => 'form-control'])!!}
+	</div>
+<br>
+	<div class = "form group">
+		{{ 'Caduca:' }}
+		<input id="caduca" type="date" class="form-control" name="caduca" value="{{ old('caduca') }}" required autofocus>
+		
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Descripcion</label>
+	</div>
 
-                            <div class="col-md-6">
-                                <input id="body" type="text" class="form-control" name="body" value="{{ old('body') }}" required autofocus>
-
-                                @if ($errors->has('body'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('body') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('caduca') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Caduca</label>
-
-                            <div class="col-md-6">
-                                <input id="caduca" type="date" class="form-control" name="caduca" value="{{ old('caduca') }}" required autofocus>
-
-                                @if ($errors->has('body'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('body') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+	<div class =" form-group">
+	{!! Form::submit('Agregar Licitacion', ['class' => 'btn btn-primary form-control']) !!}
 
 
 {!! Form::close() !!}
 
-@stop
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

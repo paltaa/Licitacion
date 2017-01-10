@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'rut' => 'required | min:9 | max: 11',
             'phone' => 'required | min:10 | max: 13'
 
+
         ]);
     }
 
@@ -70,7 +71,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'rut' =>$data['rut'],
-            'phone' => $data['phone']
+            'phone' => $data['phone'],
+            'class' => $data['class']
         ]);
     }
 }
